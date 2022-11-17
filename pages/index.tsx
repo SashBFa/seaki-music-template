@@ -6,6 +6,7 @@ import { MusicType } from "../collections/Music";
 import MusicPlayer from "../components/MusicPlayer";
 import { Button } from "@mui/material";
 import NextGig from "../components/NextGig";
+import RichText from "../components/RichText";
 
 export type Props = {
   home: HomeType;
@@ -46,6 +47,15 @@ const Index: React.FC<Props> = (props) => {
             Buy Tickets
           </Button>
         </div>
+      </div>
+      <div className="mx-6 mt-12">
+        <img
+          src={`${SERVER_URL}/media/${home.about.aboutMedia.filename}`}
+          alt={home.about.aboutMedia.alt}
+          className="object-cover w-full h-56 rounded-lg"
+        />
+        <h3 className="mt-6 mb-3 text-2xl font-bold">{home.about.title}</h3>
+        <RichText content={home.about.description} />
       </div>
     </section>
   );
